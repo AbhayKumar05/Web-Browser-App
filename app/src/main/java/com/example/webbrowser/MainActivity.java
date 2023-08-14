@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
             progressBar.setVisibility(View.VISIBLE);
         }
 
+
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
