@@ -89,7 +89,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
@@ -98,6 +100,7 @@ import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.util.regex.Pattern;
 
@@ -133,6 +136,26 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(WebView view, int newProgress) {
                 super.onProgressChanged(view, newProgress);
                 progressBar.setProgress(newProgress);
+            }
+        });
+
+        loadMyUrl("google.com");
+
+        urlInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent KeyEvent) {
+                if (i == EditorInfo.IME_ACTION_GO || i == EditorInfo.IME_ACTION_DONE ){
+                    loadMyUrl(urlInput.getText().toString());
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        clearUrl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                urlInput.setText("");
             }
         });
     }
