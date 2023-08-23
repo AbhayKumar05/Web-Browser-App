@@ -126,7 +126,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*void loadMyUrl(String url) {
+    /*
+    THIS CODE HAS SOME ERRORS.
+    void loadMyUrl(String url) {
         // Define a regular expression pattern for a valid URL format
         String urlPattern = "^(https?://)?(www\\.)?[a-zA-Z0-9_-]+(\\.[a-zA-Z]{2,6})+(/\\S*)?$";
         boolean matchUrl = Pattern.compile(urlPattern).matcher(url).matches();
